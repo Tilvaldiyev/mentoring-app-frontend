@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   background: var(--secondaryBackground);
   width: 15%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   padding: 30px;
   box-shadow: 5px 0 12px -7px #000;

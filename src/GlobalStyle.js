@@ -1,7 +1,6 @@
 import {createGlobalStyle} from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-
   :root {
     --primaryBackground: #262D37;
     --secondaryBackground: #3C424B;
@@ -20,15 +19,25 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     background-color: var(--primaryBackground);
-
-    //h1 {
-    //  font-size: 2rem;
-    //  font-weight: 600;
-    //  color: var(--blue);
-    //}
-
-    p {
+    
+    p, a {
       color: var(--white);
+      text-decoration: none;
     }
+
+    a {
+      cursor: pointer;
+    }
+
+    a:hover {
+      color: var(--blue);
+    }
+  }
+
+  .globalWrapper {
+    margin: 2% 2% 2% 17%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
   }
 `;

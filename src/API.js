@@ -16,11 +16,6 @@ const defaultConfig = {
 };
 
 const apiSettings = {
-    getPopularArticles: async () => {
-      const endpoint = `${BASE_URL}api/v1/article/popular`;
-      return await (await fetch(endpoint)).json();
-    },
-
     fetchMovies: async (searchTerm, page) => {
         const endpoint = searchTerm
             ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`

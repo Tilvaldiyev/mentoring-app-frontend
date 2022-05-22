@@ -1,0 +1,7 @@
+.wrapper {
+    color: var(--white);
+    max-width: 50%;
+    margin: 5% auto;
+    background-color: var(--secondaryBackground);
+    border-radius: 10px;
+}

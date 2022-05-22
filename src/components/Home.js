@@ -1,49 +1,36 @@
+import React, {useState} from "react";
+
 // API
 import API from "../API";
 
 // Config
 
 // Components
-import Grid from "./Grid";
-import PopularArticles from "./PopularArticles";
+import Article from "./Articles";
 import HomeFilter from "./HomeFilter";
+import PopularArticles from "./PopularArticles";
 
 // Hook
 import {useHomeFetch} from "../hooks/useHomeFetch";
 
-// Images
-import ViewsLogo from "../images/carbon_view-filled.png";
-import LikesLogo from "../images/bxs_like.png";
-
 const Home = () => {
-    const {state, error} = useHomeFetch();
+    const {popularArticles, articles, expertises, levels, error, setSearchTerm} = useHomeFetch();
+
+    const [showArticle, setShowArticle] = useState(true)
 
     return (
-        <>
-            <Grid>
-                <div style={{width:'68%'}}>
-                    <HomeFilter></HomeFilter>
-                </div>
-                <PopularArticles header='Popular Articles'>
-                    <div>{state.data.map(article => (
-                        <div key={article.id} className={'article'}>
-                            <p className={'articleTitle'}><a href="#">{article.title}</a></p>
-                            <div className={'bottom'}>
-                                <p>
-                                    <img src={ViewsLogo} alt="views"/>
-                                    <span>{article.views}</span>
-                                </p>
-                                <p>
-                                    <img src={LikesLogo} alt="views"/>
-                                    <span>{article.likes}</span>
-                                </p>
-                            </div>
-                        </div>
-                    ))}</div>
-                </PopularArticles>
-            </Grid>
-        </>
-    );
-}
+        <div className='globalWrapper'>
+            <div style={{width: "68%"}}>
+                <HomeFilter expertises={expertises} levels={levels} setSearchTerm={setSearchTerm} setShowArticle={setShowArticle}/>
+                {showArticle && articles.data.map(article => (
+                    <Article key={article.id} firstName={article.first_name} lastName={article.last_name} createdAt={article.created_at}
+                             title={article.title} description={article.description} comments={article.comment_count}
+                             likes={article.likes} views={article.views}/>
+                ))}
+            </div>
+            <PopularArticles header='Popular articles' articles={popularArticles}/>
+        </div>
+    )
+};
 
 export default Home;

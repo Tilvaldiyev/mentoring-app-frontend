@@ -1,11 +1,13 @@
 import React from "react";
-import ProfileImgDefault from '../../images/profile-default.png'
 import {Wrapper, ProfileImg, Content, HelloText} from "./Header.styles";
 
-const Header = () => (
+// profile img
+import ProfileImgDefault from '../../images/profile-default.png'
+
+const Header = ({username}) => (
     <Wrapper>
         <Content>
-            <HelloText>Hello, Alisher!</HelloText>
+            <HelloText>Hello, {username}!</HelloText>
             <ProfileImg src={ProfileImgDefault} alt={'profile img'}></ProfileImg>
         </Content>
     </Wrapper>

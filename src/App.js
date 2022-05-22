@@ -7,14 +7,16 @@ import Tab from "./components/Tab";
 import Home from "./components/Home";
 import HomeFilter from "./components/HomeFilter";
 import PopularArticles from "./components/PopularArticles";
+import AuthTab from "./components/Auth/Auth";
 
 function App() {
     return (
         <div className="App">
-            <Header/>
+            <GlobalStyle/>
+                <Header username='Alisher'/>
             <Tab/>
             <Home/>
-            <GlobalStyle/>
+            {/*<AuthTab></AuthTab>*/}
         </div>
     );
 }
