@@ -12,13 +12,15 @@ const Tab = ({homePNG, explorePNG, messagesPNG, bookmarksPNG, meetingsPNG, profi
             <Nav>
                 <NavItem><NavLogo src={homePNG}/><NavLink to='/'>Home</NavLink></NavItem>
                 <NavItem><NavLogo src={explorePNG} /><NavLink to='/explore'>Explore</NavLink></NavItem>
-                {/*<NavItem><NavLogo src={messagesPNG} /><NavLink>Messages</NavLink></NavItem>*/}
-                {/*<NavItem><NavLogo src={bookmarksPNG} /><NavLink>Bookmarks</NavLink></NavItem>*/}
-                {/*<NavItem><NavLogo src={meetingsPNG} /><NavLink>Meetings</NavLink></NavItem>*/}
-                {/*<NavItem><NavLogo src={profilePNG} /><NavLink>Profile</NavLink></NavItem>*/}
+                <NavItem><NavLogo src={messagesPNG} /><NavLink to='/messages'>Messages</NavLink></NavItem>
+                <NavItem><NavLogo src={bookmarksPNG} /><NavLink to='/bookmarks'>Bookmarks</NavLink></NavItem>
+                <NavItem><NavLogo src={meetingsPNG} /><NavLink to='/meetings'>Meetings</NavLink></NavItem>
+                <NavItem><NavLogo src={profilePNG} /><NavLink to='/profile'>Profile</NavLink></NavItem>
             </Nav>
             <LogOut>
-                <NavItem><NavLogo src={logoutPNG} /><NavLink to='/auth'>Log Out</NavLink></NavItem>
+                <NavItem><NavLogo src={logoutPNG} /><NavLink onClick={() => {
+                    sessionStorage.setItem('auth', '')
+                }} to='/auth'>Log Out</NavLink></NavItem>
             </LogOut>
         </Content>
     </Wrapper>
