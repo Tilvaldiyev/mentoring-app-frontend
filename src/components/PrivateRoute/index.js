@@ -10,9 +10,8 @@ const PrivateRoute = ({children}) => {
         sessionStorage.setItem('auth', JSON.stringify(auth))
     }
 
-
     return (
-        authState.token ? children : <Navigate to='/auth'></Navigate>
+        authState.token || auth.token ? children : <Navigate to='/auth'></Navigate>
     );
 };
 
