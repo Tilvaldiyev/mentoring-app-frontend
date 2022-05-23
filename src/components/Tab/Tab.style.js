@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
   padding: 30px;
   box-shadow: 5px 0 12px -7px #000;
   font-size: 13px;
+  
+  a {
+    padding: 0 20px;
+  }
 `;
 
 export const Content = styled.div`
@@ -36,10 +40,10 @@ export const NavLogo = styled.img`
   height: 30px;
 `;
 
-export const NavLink = styled.a`
-  padding: 0 20px;
-  margin: 0;
-`;
+// export const NavLink = styled.a`
+//   padding: 0 20px;
+//   margin: 0;
+// `;
 
 export const LogoImg = styled.img`
   width: 45%;

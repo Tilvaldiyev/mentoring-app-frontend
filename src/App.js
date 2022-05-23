@@ -1,24 +1,26 @@
 import React from 'react';
 import {GlobalStyle} from "./GlobalStyle";
 
-// Components
-import Header from "./components/Header";
-import Tab from "./components/Tab";
-import Home from "./components/Home";
-import HomeFilter from "./components/HomeFilter";
-import PopularArticles from "./components/PopularArticles";
-import AuthTab from "./components/Auth/Auth";
+// Routing
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
-function App() {
-    return (
-        <div className="App">
-            <GlobalStyle/>
-                <Header username='Alisher'/>
-            <Tab/>
-            <Home/>
-            {/*<AuthTab></AuthTab>*/}
-        </div>
-    );
-}
+// Components
+import Home from "./components/Home";
+import NotFound from "./components/NotFound";
+import Auth from "./components/Auth";
+import PrivateRoute from "./components/PrivateRoute";
+
+const App = () => (
+    <Router>
+        <Routes>
+            <Route path='/' element={
+                <PrivateRoute><Home/></PrivateRoute>
+            }/>
+            <Route path='/auth' element={<Auth/>}/>
+            <Route path='/*' element={<NotFound/>}/>
+        </Routes>
+        <GlobalStyle/>
+    </Router>
+);
 
 export default App;

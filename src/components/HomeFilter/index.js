@@ -12,7 +12,7 @@ const searchTermInitialState = {
     expertises: ''
 }
 
-const HomeFilter = ({setSearchTerm, expertises, levels, setShowArticle}) => {
+const HomeFilter = ({setSearchTerm, expertises, levels, setShowArticle, setShowPosts}) => {
     const [state, setState] = useState(searchTermInitialState);
     const initial = useRef(true);
 
@@ -34,11 +34,11 @@ const HomeFilter = ({setSearchTerm, expertises, levels, setShowArticle}) => {
             <Content>
                 <Header>
                     <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                        <button onClick={()=>setShowArticle(true)} className="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                        <button onClick={()=>{setShowArticle(true); setShowPosts(false)}} className="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-home"
                                 type="button" role="tab" aria-controls="nav-home" aria-selected="true">Articles
                         </button>
-                        <button onClick={() => setShowArticle(false)} className="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                        <button onClick={() => {setShowArticle(false); setShowPosts(true)}} className="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-profile"
                                 type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Posts
                         </button>

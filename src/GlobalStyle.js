@@ -32,6 +32,10 @@ export const GlobalStyle = createGlobalStyle`
     a:hover {
       color: var(--blue);
     }
+
+    .active {
+      color: var(--blue);
+    }
   }
 
   .globalWrapper {

@@ -20,6 +20,7 @@ export const useHomeFetch = () => {
     const [searchTerm, setSearchTerm] = useState(searchTermInitialState);
     const [popularArticles, setPopularArticles] = useState(initialState);
     const [articles, setArticles] = useState(initialState);
+    const [posts, setPosts] = useState(initialState);
     const [expertises, setExpertises] = useState(initialState);
     const [levels, setLevels] = useState(initialState);
     const [error, setError] = useState(false);
@@ -69,6 +70,18 @@ export const useHomeFetch = () => {
         }
     };
 
+    const getPosts = async () => {
+        try {
+            setError(false)
+            axios.get(`${BASE_URL}api/v1/post`).then((response) => {
+                console.log(response.data);
+                setPosts(response.data)
+            })
+        } catch (e) {
+            setError(true)
+        }
+    };
+
     const getLevels = async () => {
         try {
             setError(false)
@@ -97,5 +110,9 @@ export const useHomeFetch = () => {
         getLevels()
     }, []);
 
-    return {popularArticles, articles, expertises, levels, error, setSearchTerm}
+    useEffect(() => {
+        getPosts()
+    }, []);
+
+    return {popularArticles, articles, expertises, levels, error, posts, setSearchTerm}
 };
